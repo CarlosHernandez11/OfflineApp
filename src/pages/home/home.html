@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Service Worker App
+    </ion-title>
+  <ion-buttons right>
+      <button ion-button icon-only (click)="openAlertNewMovie()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-card>
+    <ion-card-header>
+      Peliculas no sincronizadas
+    </ion-card-header>
+    <ion-card-content refresh>
+       <ion-list>
+          <ion-item *ngIf="prev.length == 0"> 
+            Todas las tareas se han sincronizado
+          </ion-item>
+          <ion-item-sliding *ngFor="let movie of prev">
+          <ion-item >
+            <ion-label>{{ movie.titulo }}</ion-label> <br>
+            <ion-label>{{ movie.descripcion }}</ion-label>
+          </ion-item>
+          </ion-item-sliding>
+       </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
